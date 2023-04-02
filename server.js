@@ -12,10 +12,13 @@ async function main() {
   console.log("Connected to database")
 }
 
+const userRoute = require('./routes/users')
+const articleRoute = require('./routes/articles')
+
 app.use(cors())
 app.use(express.json());
 
 app.use('/user', userRoute);
-app.use('/article', postRoute)
+app.use('/article', articleRoute)
 
 app.listen(process.env.PORT, () => console.log("Server started on port 4000"));
