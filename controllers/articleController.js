@@ -46,3 +46,13 @@ exports.deleteArticle = async (req, res, next) => {
     console.log(e)
   }
 }
+
+exports.updateArticle = async (req, res, next) => {
+  try {
+    const article = await Article.findOneAndUpdate({ _id: req.params.id }, { title: req.body.title, content: req.body.content }, { new: true })
+      .populate('createdBy')
+    res.json(article)
+  } catch (err) {
+    return next(err)
+  }
+}

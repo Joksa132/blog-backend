@@ -11,4 +11,6 @@ router.get('/:id', articleController.specificArticle)
 
 router.delete('/delete/:id', verifyToken, articleController.deleteArticle)
 
+router.put('/edit/:id', verifyToken, articleController.updateArticle)
+
 module.exports = router;
