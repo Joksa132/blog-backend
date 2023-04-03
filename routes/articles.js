@@ -9,4 +9,6 @@ router.get('/all', articleController.allArticles)
 
 router.get('/:id', articleController.specificArticle)
 
+router.delete('/delete/:id', verifyToken, articleController.deleteArticle)
+
 module.exports = router;

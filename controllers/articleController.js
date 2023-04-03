@@ -36,3 +36,13 @@ exports.specificArticle = async (req, res, next) => {
     console.log("Error", e)
   }
 }
+
+exports.deleteArticle = async (req, res, next) => {
+  try {
+    const article = await Article.findOneAndDelete({ _id: req.params.id })
+    console.log("Deleted article")
+    res.json(article)
+  } catch (e) {
+    console.log(e)
+  }
+}
