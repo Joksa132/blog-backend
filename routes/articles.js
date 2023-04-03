@@ -7,4 +7,6 @@ router.post('/new', verifyToken, articleController.newArticle)
 
 router.get('/all', articleController.allArticles)
 
+router.get('/:id', articleController.specificArticle)
+
 module.exports = router;

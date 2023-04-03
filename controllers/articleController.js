@@ -27,3 +27,12 @@ exports.allArticles = async (req, res, next) => {
     console.log("Error", e)
   }
 }
+
+exports.specificArticle = async (req, res, next) => {
+  try {
+    const article = await Article.findOne({ _id: req.params.id }).populate('createdBy')
+    res.json(article)
+  } catch (e) {
+    console.log("Error", e)
+  }
+}
