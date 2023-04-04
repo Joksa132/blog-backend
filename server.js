@@ -15,10 +15,20 @@ async function main() {
 const userRoute = require('./routes/users')
 const articleRoute = require('./routes/articles')
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://singular-custard-7872dc.netlify.app/',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTIONS"],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.use(cors({
+  origin: 'https://singular-custard-7872dc.netlify.app/',
+  credentials: true,
+  optionSuccessStatus: 200
+}));
 app.use(express.json());
 
 app.use('/user', userRoute);
 app.use('/article', articleRoute)
 
-app.listen(process.env.PORT, () => console.log("Server started on port 4000"));
+app.listen(process.env.PORT, () => console.log("Server started on port 4001"));
