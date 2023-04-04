@@ -16,13 +16,13 @@ const userRoute = require('./routes/users')
 const articleRoute = require('./routes/articles')
 
 app.use(cors({
-  origin: 'https://singular-custard-7872dc.netlify.app/',
+  origin: 'https://singular-custard-7872dc.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', "OPTIONS"],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 app.use(cors({
-  origin: 'https://singular-custard-7872dc.netlify.app/',
+  origin: 'https://singular-custard-7872dc.netlify.app',
   credentials: true,
   optionSuccessStatus: 200
 }));
